@@ -46,5 +46,15 @@ namespace School_Management_System
             grade_student frm = new grade_student();
             frm.ShowDialog();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

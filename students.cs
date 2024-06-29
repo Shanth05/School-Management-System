@@ -14,23 +14,25 @@ namespace School_Management_System
     public partial class students : Form
     {
         //string conString = ConfigurationSettings.AppSettings["connectionString"];
-        bool isEditMode = false;
-        int editStudentId = 0;
 
-        DataTable dt = new DataTable();
-        DataView dv = new DataView();
+            bool isEditMode = false;
+            int editStudentId = 0;
 
-        string firstname = null;
-        string lastname = null;
-        string fullname = null;
-        string gender = null;
-        string dob = null;
-        string nic = null;
-        string tp = null;
-        string grid = null;
-        string medium = null;
-        string doa = null;
-        string address = null;
+            DataTable dt = new DataTable();
+            DataView dv = new DataView();
+
+            string admission = null;
+            string firstname = null;
+            string lastname = null;
+            string fullname = null;
+            string gender = null;
+            string dob = null;
+            string nic = null;
+            string tp = null;
+            string grid = null;
+            string medium = null;
+            string doa = null;
+            string address = null;
         public students(/*string firstname, string lastname, string fullname, string gender, string dob, string nic, string tp, string grid, string medium, string doa, string address*/)
         {
             InitializeComponent();
@@ -49,6 +51,7 @@ namespace School_Management_System
         }
         private void students_Load(object sender, EventArgs e)
         {
+            txtad.Text = this.admission;
             txtfirst.Text = this.firstname;
             txtlast.Text = this.lastname;
             txtfull.Text = this.fullname;
@@ -80,8 +83,8 @@ namespace School_Management_System
 
             SqlConnection cnn = new SqlConnection(connetionString);
             SqlCommand command;
-            string sql = "INSERT INTO [students] (first_name, last_name, full_name, gender, date_of_birth, student_nic_no, tp_no, grade_id, medium, date_of_admission, resident_address) " +
-             "VALUES ('" + txtfirst.Text + "', '" + txtlast.Text + "', '" + txtfull.Text + "', '" + gender + "', '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "', '" +
+            string sql = "INSERT INTO [students] (admission_no,first_name, last_name, full_name, gender, date_of_birth, student_nic_no, tp_no, grade_id, medium, date_of_admission, resident_address) " +
+             "VALUES ('" + txtad.Text + "','" + txtfirst.Text + "', '" + txtlast.Text + "', '" + txtfull.Text + "', '" + gender + "', '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "', '" +
              txtNIC.Text + "', '" + txtTp.Text + "', '" + combGID.Text + "', '" + combmedium.Text + "', '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "', '" + txtRadd.Text + "')";
 
             try
@@ -138,6 +141,7 @@ namespace School_Management_System
             SqlConnection cnn = new SqlConnection(connectionString);
             SqlCommand command;
             string sql = "UPDATE [students] SET " +
+                          "admission_no = '" + txtad.Text + "',"+
                          "first_name = '" + txtfirst.Text + "', " +
                          "last_name = '" + txtlast.Text + "', " +
                          "full_name = '" + txtfull.Text + "', " +
@@ -210,6 +214,78 @@ namespace School_Management_System
         {
             this.Close();
         }
+
+        private void btnshow_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Data Source=RushanthG\\SQLEXPRESS;Initial Catalog=School Management System;User ID=sa;Password=4158;TrustServerCertificate=True";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    string sql = "SELECT * FROM [students]";
+                    SqlCommand command = new SqlCommand(sql, con);
+
+                    con.Open();
+                    SqlDataReader sqlReader = command.ExecuteReader();
+
+                    DataTable dt = new DataTable();
+                    dt.Load(sqlReader);
+
+                    dataGridView1.DataSource = dt;
+
+                    sqlReader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string admission_no = dataGridView1.SelectedRows[0].Cells["admission_no"].Value.ToString();
+                string first_name = dataGridView1.SelectedRows[0].Cells["first_name"].Value.ToString();
+                string last_name = dataGridView1.SelectedRows[0].Cells["last_name"].Value.ToString();
+                string full_name = dataGridView1.SelectedRows[0].Cells["full_name"].Value.ToString();
+                string date_of_birth = dataGridView1.SelectedRows[0].Cells["date_of_birth"].Value.ToString();
+                string student_nic_no = dataGridView1.SelectedRows[0].Cells["student_nic_no"].Value.ToString();
+                string tp_no = dataGridView1.SelectedRows[0].Cells["tp_no"].Value.ToString();
+                string grade_id = dataGridView1.SelectedRows[0].Cells["grade_id"].Value.ToString();
+                string medium = dataGridView1.SelectedRows[0].Cells["medium"].Value.ToString();
+                string date_of_admission = dataGridView1.SelectedRows[0].Cells["date_of_admission"].Value.ToString();
+                string resident_address = dataGridView1.SelectedRows[0].Cells["resident_address"].Value.ToString();
+                string gender = dataGridView1.SelectedRows[0].Cells["gender"].Value.ToString();
+
+                txtad.Text = admission_no;
+                txtfirst.Text = first_name;
+                txtlast.Text = last_name;
+                txtfull.Text = full_name;
+                dateTimePicker1.Value = DateTime.Parse(date_of_birth);
+                txtNIC.Text = student_nic_no;
+                txtTp.Text = tp_no;
+                combGID.Text = grade_id;
+                combmedium.Text = medium;
+                dateTimePicker2.Value = DateTime.Parse(date_of_admission);
+                txtRadd.Text = resident_address;
+
+                if (gender == "Male")
+                {
+                    rdmale.Checked = true;
+                }
+                else if (gender == "Female")
+                {
+                    rdfemale.Checked = true;
+                }
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
-
