@@ -44,7 +44,7 @@
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(24, 33);
+            this.lblname.Location = new System.Drawing.Point(42, 101);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(74, 13);
             this.lblname.TabIndex = 0;
@@ -53,7 +53,7 @@
             // lblindex
             // 
             this.lblindex.AutoSize = true;
-            this.lblindex.Location = new System.Drawing.Point(24, 88);
+            this.lblindex.Location = new System.Drawing.Point(42, 127);
             this.lblindex.Name = "lblindex";
             this.lblindex.Size = new System.Drawing.Size(72, 13);
             this.lblindex.TabIndex = 0;
@@ -62,7 +62,7 @@
             // lblnumber
             // 
             this.lblnumber.AutoSize = true;
-            this.lblnumber.Location = new System.Drawing.Point(24, 135);
+            this.lblnumber.Location = new System.Drawing.Point(42, 153);
             this.lblnumber.Name = "lblnumber";
             this.lblnumber.Size = new System.Drawing.Size(83, 13);
             this.lblnumber.TabIndex = 0;
@@ -71,7 +71,7 @@
             // lblorder
             // 
             this.lblorder.AutoSize = true;
-            this.lblorder.Location = new System.Drawing.Point(24, 181);
+            this.lblorder.Location = new System.Drawing.Point(42, 179);
             this.lblorder.Name = "lblorder";
             this.lblorder.Size = new System.Drawing.Size(72, 13);
             this.lblorder.TabIndex = 0;
@@ -79,37 +79,37 @@
             // 
             // txtname
             // 
-            this.txtname.Location = new System.Drawing.Point(115, 30);
+            this.txtname.Location = new System.Drawing.Point(133, 101);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(141, 20);
             this.txtname.TabIndex = 1;
             // 
             // txtindex
             // 
-            this.txtindex.Location = new System.Drawing.Point(115, 85);
+            this.txtindex.Location = new System.Drawing.Point(133, 127);
             this.txtindex.Name = "txtindex";
             this.txtindex.Size = new System.Drawing.Size(141, 20);
             this.txtindex.TabIndex = 1;
             // 
             // txtnumber
             // 
-            this.txtnumber.Location = new System.Drawing.Point(115, 132);
+            this.txtnumber.Location = new System.Drawing.Point(133, 153);
             this.txtnumber.Name = "txtnumber";
             this.txtnumber.Size = new System.Drawing.Size(141, 20);
             this.txtnumber.TabIndex = 1;
             // 
             // txtorder
             // 
-            this.txtorder.Location = new System.Drawing.Point(115, 178);
+            this.txtorder.Location = new System.Drawing.Point(133, 179);
             this.txtorder.Name = "txtorder";
             this.txtorder.Size = new System.Drawing.Size(141, 20);
             this.txtorder.TabIndex = 1;
             // 
             // btnsubmit
             // 
-            this.btnsubmit.Location = new System.Drawing.Point(195, 220);
+            this.btnsubmit.Location = new System.Drawing.Point(203, 206);
             this.btnsubmit.Name = "btnsubmit";
-            this.btnsubmit.Size = new System.Drawing.Size(87, 23);
+            this.btnsubmit.Size = new System.Drawing.Size(71, 23);
             this.btnsubmit.TabIndex = 2;
             this.btnsubmit.Text = "Submit";
             this.btnsubmit.UseVisualStyleBackColor = true;
@@ -119,14 +119,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(297, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(753, 233);
+            this.dataGridView1.Size = new System.Drawing.Size(573, 259);
             this.dataGridView1.TabIndex = 3;
             // 
             // subjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 296);
+            this.ClientSize = new System.Drawing.Size(970, 295);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnsubmit);
             this.Controls.Add(this.txtorder);
@@ -138,6 +138,7 @@
             this.Controls.Add(this.lblindex);
             this.Controls.Add(this.lblname);
             this.Name = "subjects";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "subjects";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

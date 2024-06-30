@@ -35,26 +35,14 @@ namespace School_Management_System
             frm.ShowDialog();
         }
 
-        private void btnstudent_subject_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-            student_subject frm = new student_subject();
-            frm.ShowDialog();
+            this.Close();
         }
 
-        private void btngrade_subject_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            grade_student frm = new grade_student();
-            frm.ShowDialog();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

@@ -51,11 +51,11 @@
     <Compile Include="grades.Designer.cs">
       <DependentUpon>grades.cs</DependentUpon>
     </Compile>
-    <Compile Include="grade_student.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="grade_student.Designer.cs">
-      <DependentUpon>grade_student.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
@@ -76,12 +76,6 @@
     <Compile Include="students.Designer.cs">
       <DependentUpon>students.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_subject.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="student_subject.Designer.cs">
-      <DependentUpon>student_subject.cs</DependentUpon>
-    </Compile>
     <Compile Include="subjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,8 +90,8 @@
     <EmbeddedResource Include="grades.resx">
       <DependentUpon>grades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="grade_student.resx">
-      <DependentUpon>grade_student.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
@@ -108,9 +102,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="students.resx">
       <DependentUpon>students.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="student_subject.resx">
-      <DependentUpon>student_subject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subjects.resx">
       <DependentUpon>subjects.cs</DependentUpon>
@@ -130,6 +121,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\icons8-logout-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\istockphoto-1502289545-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Student-Information-System.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\icons8-student-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\images-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\im1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

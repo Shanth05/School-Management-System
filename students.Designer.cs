@@ -69,9 +69,9 @@
             // 
             this.btnCreate.BackColor = System.Drawing.Color.SpringGreen;
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(529, 372);
+            this.btnCreate.Location = new System.Drawing.Point(93, 400);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(101, 32);
+            this.btnCreate.Size = new System.Drawing.Size(71, 32);
             this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -81,9 +81,9 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.LightGreen;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(658, 374);
+            this.btnUpdate.Location = new System.Drawing.Point(170, 402);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(101, 30);
+            this.btnUpdate.Size = new System.Drawing.Size(80, 30);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -93,9 +93,9 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(781, 374);
+            this.btnDelete.Location = new System.Drawing.Point(262, 402);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 30);
+            this.btnDelete.Size = new System.Drawing.Size(71, 30);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -119,7 +119,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(351, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(591, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(591, 367);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -139,9 +139,9 @@
             // 
             this.btnshow.BackColor = System.Drawing.Color.LightGreen;
             this.btnshow.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnshow.Location = new System.Drawing.Point(412, 372);
+            this.btnshow.Location = new System.Drawing.Point(16, 398);
             this.btnshow.Name = "btnshow";
-            this.btnshow.Size = new System.Drawing.Size(101, 32);
+            this.btnshow.Size = new System.Drawing.Size(71, 32);
             this.btnshow.TabIndex = 6;
             this.btnshow.Text = "Show";
             this.btnshow.UseVisualStyleBackColor = false;
@@ -176,7 +176,7 @@
             this.panel1.Controls.Add(this.lblfirst);
             this.panel1.Location = new System.Drawing.Point(9, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(336, 347);
+            this.panel1.Size = new System.Drawing.Size(336, 366);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -429,7 +429,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(953, 415);
+            this.ClientSize = new System.Drawing.Size(958, 447);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnexit);
@@ -439,6 +439,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCreate);
             this.Name = "students";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "students";
             this.Load += new System.EventHandler(this.students_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
