@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="grades.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="grades.Designer.cs">
       <DependentUpon>grades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradesNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GradesNew.Designer.cs">
+      <DependentUpon>GradesNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -76,19 +88,43 @@
     <Compile Include="students.Designer.cs">
       <DependentUpon>students.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentsNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsNew.Designer.cs">
+      <DependentUpon>StudentsNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubjectNew.Designer.cs">
+      <DependentUpon>SubjectNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="subjects.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="subjects.Designer.cs">
       <DependentUpon>subjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="grades.resx">
       <DependentUpon>grades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradesNew.resx">
+      <DependentUpon>GradesNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -102,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="students.resx">
       <DependentUpon>students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsNew.resx">
+      <DependentUpon>StudentsNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectNew.resx">
+      <DependentUpon>SubjectNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subjects.resx">
       <DependentUpon>subjects.cs</DependentUpon>
@@ -142,6 +184,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\im1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\icons8-search-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\teacher.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\notice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\students.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\result.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\teacher-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\exam-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\ved-blog-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\managment-software.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\banner-2-3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Advantages-Of-School-Management-System-copy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

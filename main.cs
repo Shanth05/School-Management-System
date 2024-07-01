@@ -17,11 +17,34 @@ namespace School_Management_System
             InitializeComponent();
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult check = MessageBox.Show("Are you sure you want to logout?","Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if(check == DialogResult.Yes)
+            {
+                Login frm = new Login();
+                frm.ShowDialog();
+                this.Hide();
+            }                   
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+        }
+
         private void btnstudents_Click(object sender, EventArgs e)
         {
+            
             students frm = new students();
-            frm.ShowDialog();
+            frm.ShowDialog();  
         }
+
 
         private void btnsubjects_Click(object sender, EventArgs e)
         {
@@ -33,16 +56,6 @@ namespace School_Management_System
         {
             grades frm = new grades();
             frm.ShowDialog();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

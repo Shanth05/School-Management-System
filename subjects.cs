@@ -16,5 +16,15 @@ namespace School_Management_System
         {
             InitializeComponent();
         }
+
+        public static implicit operator subjects(bool v)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnshow_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
