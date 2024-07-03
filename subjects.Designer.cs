@@ -33,31 +33,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtorder = new System.Windows.Forms.TextBox();
             this.txtnumber = new System.Windows.Forms.TextBox();
             this.txtindex = new System.Windows.Forms.TextBox();
             this.txtname = new System.Windows.Forms.TextBox();
-            this.lblorder = new System.Windows.Forms.Label();
-            this.lblnumber = new System.Windows.Forms.Label();
-            this.lblindex = new System.Windows.Forms.Label();
-            this.lblname = new System.Windows.Forms.Label();
+            this.lblsuborder = new System.Windows.Forms.Label();
+            this.lblsubnumber = new System.Windows.Forms.Label();
+            this.lblsubindex = new System.Windows.Forms.Label();
+            this.lblsubname = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnshow = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridSub = new System.Windows.Forms.DataGridView();
             this.Search = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -90,6 +90,7 @@
             this.label2.Size = new System.Drawing.Size(16, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -110,82 +111,93 @@
             this.panel1.Controls.Add(this.txtnumber);
             this.panel1.Controls.Add(this.txtindex);
             this.panel1.Controls.Add(this.txtname);
-            this.panel1.Controls.Add(this.lblorder);
-            this.panel1.Controls.Add(this.lblnumber);
-            this.panel1.Controls.Add(this.lblindex);
-            this.panel1.Controls.Add(this.lblname);
+            this.panel1.Controls.Add(this.lblsuborder);
+            this.panel1.Controls.Add(this.lblsubnumber);
+            this.panel1.Controls.Add(this.lblsubindex);
+            this.panel1.Controls.Add(this.lblsubname);
             this.panel1.Location = new System.Drawing.Point(23, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(335, 313);
             this.panel1.TabIndex = 12;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Blue;
+            this.pictureBox2.Image = global::School_Management_System.Properties.Resources.login2;
+            this.pictureBox2.Location = new System.Drawing.Point(89, 14);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(146, 89);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 66;
+            this.pictureBox2.TabStop = false;
+            // 
             // txtorder
             // 
-            this.txtorder.Location = new System.Drawing.Point(157, 235);
+            this.txtorder.Location = new System.Drawing.Point(157, 239);
             this.txtorder.Name = "txtorder";
             this.txtorder.Size = new System.Drawing.Size(172, 20);
             this.txtorder.TabIndex = 7;
             // 
             // txtnumber
             // 
-            this.txtnumber.Location = new System.Drawing.Point(157, 196);
+            this.txtnumber.Location = new System.Drawing.Point(157, 200);
             this.txtnumber.Name = "txtnumber";
             this.txtnumber.Size = new System.Drawing.Size(172, 20);
             this.txtnumber.TabIndex = 8;
             // 
             // txtindex
             // 
-            this.txtindex.Location = new System.Drawing.Point(157, 157);
+            this.txtindex.Location = new System.Drawing.Point(157, 161);
             this.txtindex.Name = "txtindex";
             this.txtindex.Size = new System.Drawing.Size(172, 20);
             this.txtindex.TabIndex = 9;
             // 
             // txtname
             // 
-            this.txtname.Location = new System.Drawing.Point(157, 118);
+            this.txtname.Location = new System.Drawing.Point(157, 122);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(172, 20);
             this.txtname.TabIndex = 10;
             // 
-            // lblorder
+            // lblsuborder
             // 
-            this.lblorder.AutoSize = true;
-            this.lblorder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblorder.Location = new System.Drawing.Point(25, 232);
-            this.lblorder.Name = "lblorder";
-            this.lblorder.Size = new System.Drawing.Size(114, 21);
-            this.lblorder.TabIndex = 3;
-            this.lblorder.Text = "Subject Order";
+            this.lblsuborder.AutoSize = true;
+            this.lblsuborder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsuborder.Location = new System.Drawing.Point(25, 236);
+            this.lblsuborder.Name = "lblsuborder";
+            this.lblsuborder.Size = new System.Drawing.Size(114, 21);
+            this.lblsuborder.TabIndex = 3;
+            this.lblsuborder.Text = "Subject Order";
             // 
-            // lblnumber
+            // lblsubnumber
             // 
-            this.lblnumber.AutoSize = true;
-            this.lblnumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnumber.Location = new System.Drawing.Point(22, 193);
-            this.lblnumber.Name = "lblnumber";
-            this.lblnumber.Size = new System.Drawing.Size(134, 21);
-            this.lblnumber.TabIndex = 4;
-            this.lblnumber.Text = "Subject Number";
+            this.lblsubnumber.AutoSize = true;
+            this.lblsubnumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubnumber.Location = new System.Drawing.Point(22, 197);
+            this.lblsubnumber.Name = "lblsubnumber";
+            this.lblsubnumber.Size = new System.Drawing.Size(134, 21);
+            this.lblsubnumber.TabIndex = 4;
+            this.lblsubnumber.Text = "Subject Number";
             // 
-            // lblindex
+            // lblsubindex
             // 
-            this.lblindex.AutoSize = true;
-            this.lblindex.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblindex.Location = new System.Drawing.Point(22, 154);
-            this.lblindex.Name = "lblindex";
-            this.lblindex.Size = new System.Drawing.Size(114, 21);
-            this.lblindex.TabIndex = 5;
-            this.lblindex.Text = "Subject Index";
+            this.lblsubindex.AutoSize = true;
+            this.lblsubindex.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubindex.Location = new System.Drawing.Point(22, 158);
+            this.lblsubindex.Name = "lblsubindex";
+            this.lblsubindex.Size = new System.Drawing.Size(114, 21);
+            this.lblsubindex.TabIndex = 5;
+            this.lblsubindex.Text = "Subject Index";
             // 
-            // lblname
+            // lblsubname
             // 
-            this.lblname.AutoSize = true;
-            this.lblname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblname.Location = new System.Drawing.Point(22, 115);
-            this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(117, 21);
-            this.lblname.TabIndex = 6;
-            this.lblname.Text = "Subject Name";
+            this.lblsubname.AutoSize = true;
+            this.lblsubname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubname.Location = new System.Drawing.Point(22, 119);
+            this.lblsubname.Name = "lblsubname";
+            this.lblsubname.Size = new System.Drawing.Size(117, 21);
+            this.lblsubname.TabIndex = 6;
+            this.lblsubname.Text = "Subject Name";
             // 
             // panel3
             // 
@@ -210,7 +222,7 @@
             this.btnshow.Name = "btnshow";
             this.btnshow.Size = new System.Drawing.Size(77, 32);
             this.btnshow.TabIndex = 7;
-            this.btnshow.Text = "Show";
+            this.btnshow.Text = "Refresh";
             this.btnshow.UseVisualStyleBackColor = false;
             this.btnshow.Click += new System.EventHandler(this.btnshow_Click);
             // 
@@ -255,15 +267,16 @@
             this.btnCreate.TabIndex = 10;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // dataGridView2
+            // dataGridSub
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(370, 52);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(670, 313);
-            this.dataGridView2.TabIndex = 14;
+            this.dataGridSub.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridSub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSub.Location = new System.Drawing.Point(370, 52);
+            this.dataGridSub.Name = "dataGridSub";
+            this.dataGridSub.Size = new System.Drawing.Size(670, 313);
+            this.dataGridSub.TabIndex = 14;
             // 
             // Search
             // 
@@ -296,17 +309,6 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox2.Image = global::School_Management_System.Properties.Resources.login2;
-            this.pictureBox2.Location = new System.Drawing.Point(89, 14);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(146, 89);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 66;
-            this.pictureBox2.TabStop = false;
-            // 
             // subjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,7 +317,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridSub);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -329,10 +331,10 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,16 +350,16 @@
         private System.Windows.Forms.TextBox txtnumber;
         private System.Windows.Forms.TextBox txtindex;
         private System.Windows.Forms.TextBox txtname;
-        private System.Windows.Forms.Label lblorder;
-        private System.Windows.Forms.Label lblnumber;
-        private System.Windows.Forms.Label lblindex;
-        private System.Windows.Forms.Label lblname;
+        private System.Windows.Forms.Label lblsuborder;
+        private System.Windows.Forms.Label lblsubnumber;
+        private System.Windows.Forms.Label lblsubindex;
+        private System.Windows.Forms.Label lblsubname;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnshow;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridSub;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Search;
         private System.Windows.Forms.TextBox textBox1;

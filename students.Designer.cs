@@ -189,8 +189,8 @@
             "8",
             "9",
             "10",
-            "O/l",
-            "A/l"});
+            "11",
+            "12"});
             this.combGID.Location = new System.Drawing.Point(129, 205);
             this.combGID.Name = "combGID";
             this.combGID.Size = new System.Drawing.Size(200, 21);

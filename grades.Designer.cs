@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnshow = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.combGID = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.combGroup = new System.Windows.Forms.ComboBox();
+            this.txtOrder = new System.Windows.Forms.TextBox();
             this.txtname = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblOrder = new System.Windows.Forms.Label();
+            this.lblGroup = new System.Windows.Forms.Label();
             this.lblname = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -47,19 +48,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Teal;
-            this.panel3.Controls.Add(this.btnshow);
+            this.panel3.Controls.Add(this.btnRefresh);
             this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.btnUpdate);
             this.panel3.Controls.Add(this.btnCreate);
@@ -68,19 +68,20 @@
             this.panel3.Size = new System.Drawing.Size(335, 39);
             this.panel3.TabIndex = 12;
             // 
-            // btnshow
+            // btnRefresh
             // 
-            this.btnshow.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnshow.FlatAppearance.BorderSize = 2;
-            this.btnshow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.btnshow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.btnshow.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnshow.Location = new System.Drawing.Point(89, 4);
-            this.btnshow.Name = "btnshow";
-            this.btnshow.Size = new System.Drawing.Size(77, 32);
-            this.btnshow.TabIndex = 7;
-            this.btnshow.Text = "Refresh";
-            this.btnshow.UseVisualStyleBackColor = false;
+            this.btnRefresh.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnRefresh.FlatAppearance.BorderSize = 2;
+            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(89, 4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(77, 32);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnDelete
             // 
@@ -95,6 +96,7 @@
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -109,6 +111,7 @@
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCreate
             // 
@@ -123,26 +126,37 @@
             this.btnCreate.TabIndex = 10;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click_1);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.combGID);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.combGroup);
+            this.panel1.Controls.Add(this.txtOrder);
             this.panel1.Controls.Add(this.txtname);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblOrder);
+            this.panel1.Controls.Add(this.lblGroup);
             this.panel1.Controls.Add(this.lblname);
             this.panel1.Location = new System.Drawing.Point(18, 36);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(335, 362);
             this.panel1.TabIndex = 13;
             // 
-            // combGID
+            // pictureBox2
             // 
-            this.combGID.FormattingEnabled = true;
-            this.combGID.Items.AddRange(new object[] {
+            this.pictureBox2.Image = global::School_Management_System.Properties.Resources.Advantages_Of_School_Management_System_copy;
+            this.pictureBox2.Location = new System.Drawing.Point(30, 16);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(290, 108);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 65;
+            this.pictureBox2.TabStop = false;
+            // 
+            // combGroup
+            // 
+            this.combGroup.FormattingEnabled = true;
+            this.combGroup.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -153,19 +167,19 @@
             "8",
             "9",
             "10",
-            "O/l",
-            "A/l"});
-            this.combGID.Location = new System.Drawing.Point(148, 187);
-            this.combGID.Name = "combGID";
-            this.combGID.Size = new System.Drawing.Size(172, 21);
-            this.combGID.TabIndex = 64;
+            "11",
+            "12"});
+            this.combGroup.Location = new System.Drawing.Point(148, 187);
+            this.combGroup.Name = "combGroup";
+            this.combGroup.Size = new System.Drawing.Size(172, 21);
+            this.combGroup.TabIndex = 64;
             // 
-            // textBox3
+            // txtOrder
             // 
-            this.textBox3.Location = new System.Drawing.Point(148, 229);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(172, 20);
-            this.textBox3.TabIndex = 61;
+            this.txtOrder.Location = new System.Drawing.Point(148, 229);
+            this.txtOrder.Name = "txtOrder";
+            this.txtOrder.Size = new System.Drawing.Size(172, 20);
+            this.txtOrder.TabIndex = 61;
             // 
             // txtname
             // 
@@ -174,25 +188,25 @@
             this.txtname.Size = new System.Drawing.Size(172, 20);
             this.txtname.TabIndex = 63;
             // 
-            // label4
+            // lblOrder
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 226);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 21);
-            this.label4.TabIndex = 57;
-            this.label4.Text = "Grade Order";
+            this.lblOrder.AutoSize = true;
+            this.lblOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrder.Location = new System.Drawing.Point(13, 226);
+            this.lblOrder.Name = "lblOrder";
+            this.lblOrder.Size = new System.Drawing.Size(102, 21);
+            this.lblOrder.TabIndex = 57;
+            this.lblOrder.Text = "Grade Order";
             // 
-            // label5
+            // lblGroup
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 187);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 21);
-            this.label5.TabIndex = 58;
-            this.label5.Text = "Grade Group";
+            this.lblGroup.AutoSize = true;
+            this.lblGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(13, 187);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(106, 21);
+            this.lblGroup.TabIndex = 58;
+            this.lblGroup.Text = "Grade Group";
             // 
             // lblname
             // 
@@ -255,6 +269,7 @@
             this.label1.Size = new System.Drawing.Size(16, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "X";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -277,16 +292,6 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::School_Management_System.Properties.Resources.Advantages_Of_School_Management_System_copy;
-            this.pictureBox2.Location = new System.Drawing.Point(30, 16);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(290, 108);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 65;
-            this.pictureBox2.TabStop = false;
-            // 
             // grades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,11 +311,11 @@
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,7 +323,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnshow;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnCreate;
@@ -330,12 +335,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtOrder;
         private System.Windows.Forms.TextBox txtname;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblOrder;
+        private System.Windows.Forms.Label lblGroup;
         private System.Windows.Forms.Label lblname;
-        private System.Windows.Forms.ComboBox combGID;
+        private System.Windows.Forms.ComboBox combGroup;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
