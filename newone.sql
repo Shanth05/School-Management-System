@@ -1,5 +1,11 @@
 USE [School Management System];
 
+DROP TABLE students;
+DROP TABLE subjects;
+DROP TABLE grades;
+DROP TABLE student_subject;
+DROP TABLE grade_subject;
+
 -- Create grades Table
 CREATE TABLE grades (
     id INT PRIMARY KEY IDENTITY(1,1),
@@ -18,7 +24,7 @@ CREATE TABLE subjects (
     subject_index INT,
     subject_number INT,
     subject_order INT,
-    created_at TIMESTAMP,
+    created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE(),
     deleted_at DATETIME
 );
@@ -40,14 +46,13 @@ CREATE TABLE students (
     date_of_admission DATE,
     resident_address VARCHAR(50),
     created_at DATETIME DEFAULT GETDATE(),
-    row_version TIMESTAMP,
     updated_at DATETIME DEFAULT GETDATE(),
     deleted_at DATETIME,
     CONSTRAINT FK_students_grades FOREIGN KEY (grade_id) REFERENCES grades(id)
 );
 
 -- Create student_subjects Table
-CREATE TABLE student_subjects (
+CREATE TABLE student_subject (
     id INT,
     subject_id INT,
     admission_no VARCHAR(20),
@@ -58,7 +63,7 @@ CREATE TABLE student_subjects (
 );
 
 -- Create grade_subjects Table
-CREATE TABLE grade_subjects (
+CREATE TABLE grade_subject(
     id INT PRIMARY KEY IDENTITY(1,1),
     grade_id INT,
     subject_id INT,
@@ -69,8 +74,8 @@ CREATE TABLE grade_subjects (
 SELECT * FROM students;
 SELECT * FROM subjects;
 SELECT * FROM grades;
-SELECT * FROM student_subjects;
-SELECT * FROM grade_subjects;
+SELECT * FROM student_subject;
+SELECT * FROM grade_subject;
 
 INSERT INTO students (admission_no, first_name, last_name, full_name, gender, date_of_birth, tp_no, grade_id, medium, date_of_admission, resident_address)
 VALUES

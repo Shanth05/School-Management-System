@@ -32,7 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkshow = new System.Windows.Forms.CheckBox();
             this.btnlogin = new System.Windows.Forms.Button();
             this.txtpassword = new System.Windows.Forms.TextBox();
@@ -40,13 +43,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +74,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Red;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(681, 9);
             this.label1.Name = "label1";
@@ -93,6 +94,27 @@
             this.panel2.Size = new System.Drawing.Size(700, 389);
             this.panel2.TabIndex = 1;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::School_Management_System.Properties.Resources.images_removebg_preview;
+            this.pictureBox2.Location = new System.Drawing.Point(61, 133);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(221, 214);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Teal;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(61, 64);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(231, 50);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "Welcome User!";
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -108,6 +130,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(326, 343);
             this.panel3.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::School_Management_System.Properties.Resources.icons8_student_481;
+            this.pictureBox1.Location = new System.Drawing.Point(278, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 46);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // checkshow
             // 
@@ -183,36 +214,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Sign In";
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Teal;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(61, 64);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 50);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Welcome User!";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::School_Management_System.Properties.Resources.images_removebg_preview;
-            this.pictureBox2.Location = new System.Drawing.Point(61, 133);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(221, 214);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::School_Management_System.Properties.Resources.icons8_student_481;
-            this.pictureBox1.Location = new System.Drawing.Point(278, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 46);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,9 +229,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

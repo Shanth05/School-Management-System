@@ -46,8 +46,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtsearch = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -187,7 +187,7 @@
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(77, 32);
             this.btnClear.TabIndex = 10;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "Refresh";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -279,6 +279,15 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Grade\'s Details";
             // 
+            // txtsearch
+            // 
+            this.txtsearch.BackColor = System.Drawing.Color.Teal;
+            this.txtsearch.Location = new System.Drawing.Point(362, 36);
+            this.txtsearch.Multiline = true;
+            this.txtsearch.Name = "txtsearch";
+            this.txtsearch.Size = new System.Drawing.Size(682, 31);
+            this.txtsearch.TabIndex = 63;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::School_Management_System.Properties.Resources.icons8_search_50;
@@ -289,20 +298,11 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // txtsearch
-            // 
-            this.txtsearch.BackColor = System.Drawing.Color.Teal;
-            this.txtsearch.Location = new System.Drawing.Point(362, 36);
-            this.txtsearch.Multiline = true;
-            this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Size = new System.Drawing.Size(682, 31);
-            this.txtsearch.TabIndex = 63;
-            // 
             // grades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 399);
+            this.ClientSize = new System.Drawing.Size(1050, 406);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView2);

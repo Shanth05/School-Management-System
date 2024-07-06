@@ -57,5 +57,22 @@ namespace School_Management_System
             grades frm = new grades();
             frm.ShowDialog();
         }
+
+        private void btnstusub_Click(object sender, EventArgs e)
+        {
+            student_subject frm = new student_subject();
+            frm.ShowDialog();
+        }
+
+        private void btngrsub_Click(object sender, EventArgs e)
+        {
+            grade_subject frm = new grade_subject();
+            frm.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
