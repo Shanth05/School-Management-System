@@ -253,9 +253,12 @@
             // txtTp
             // 
             this.txtTp.Location = new System.Drawing.Point(129, 180);
+            this.txtTp.MaxLength = 10;
             this.txtTp.Name = "txtTp";
             this.txtTp.Size = new System.Drawing.Size(200, 20);
             this.txtTp.TabIndex = 49;
+            this.txtTp.TextChanged += new System.EventHandler(this.txtTp_TextChanged);
+            this.txtTp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTp_KeyPress);
             // 
             // txtNIC
             // 

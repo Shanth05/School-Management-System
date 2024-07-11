@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace School_Management_System
@@ -371,6 +372,7 @@ namespace School_Management_System
 
         }
 
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker1.CustomFormat="dd/MM/yyyy";
@@ -395,6 +397,27 @@ namespace School_Management_System
             if (e.KeyCode == Keys.Back)
             {
                 dateTimePicker1.CustomFormat = "";
+            }
+        }
+
+        private void txtTp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Error, A phone number cannot contains letters");
+            }
+        }
+
+        private void txtTp_TextChanged(object sender, EventArgs e)
+        {
+            if(txtTp.TextLength == 10)
+            {
+                txtTp.ForeColor = Color.Black;
+            }
+            else
+            {
+                txtTp.ForeColor = Color.Red;
             }
         }
     }
