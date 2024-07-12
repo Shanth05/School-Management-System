@@ -32,6 +32,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnexit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.txtad = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.combmedium = new System.Windows.Forms.ComboBox();
@@ -65,7 +66,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.Search = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,10 +90,11 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(353, 52);
+            this.dataGridView1.Location = new System.Drawing.Point(353, 86);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(670, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(670, 429);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // btnexit
             // 
@@ -109,6 +110,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.txtad);
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.combmedium);
@@ -136,8 +138,23 @@
             this.panel1.Controls.Add(this.lblfirst);
             this.panel1.Location = new System.Drawing.Point(11, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(336, 358);
+            this.panel1.Size = new System.Drawing.Size(336, 463);
             this.panel1.TabIndex = 9;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnRefresh.FlatAppearance.BorderSize = 2;
+            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(251, 352);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(77, 32);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // txtad
             // 
@@ -148,11 +165,13 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(131, 257);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 57;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.dateTimePicker2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker2_KeyDown);
             // 
             // combmedium
             // 
@@ -169,11 +188,14 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "M-DD-YYYY";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(129, 130);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 56;
+            this.dateTimePicker1.Value = new System.DateTime(2024, 7, 10, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyDown);
             // 
             // combGID
             // 
@@ -231,9 +253,12 @@
             // txtTp
             // 
             this.txtTp.Location = new System.Drawing.Point(129, 180);
+            this.txtTp.MaxLength = 10;
             this.txtTp.Name = "txtTp";
             this.txtTp.Size = new System.Drawing.Size(200, 20);
             this.txtTp.TabIndex = 49;
+            this.txtTp.TextChanged += new System.EventHandler(this.txtTp_TextChanged);
+            this.txtTp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTp_KeyPress);
             // 
             // txtNIC
             // 
@@ -404,6 +429,7 @@
             this.label2.Size = new System.Drawing.Size(16, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -423,7 +449,7 @@
             this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.btnUpdate);
             this.panel3.Controls.Add(this.btnCreate);
-            this.panel3.Location = new System.Drawing.Point(11, 417);
+            this.panel3.Location = new System.Drawing.Point(11, 472);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(335, 39);
             this.panel3.TabIndex = 11;
@@ -435,11 +461,11 @@
             this.btnshow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnshow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnshow.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnshow.Location = new System.Drawing.Point(89, 4);
+            this.btnshow.Location = new System.Drawing.Point(6, 4);
             this.btnshow.Name = "btnshow";
             this.btnshow.Size = new System.Drawing.Size(77, 32);
             this.btnshow.TabIndex = 7;
-            this.btnshow.Text = "Refresh";
+            this.btnshow.Text = "Get All";
             this.btnshow.UseVisualStyleBackColor = false;
             this.btnshow.Click += new System.EventHandler(this.btnshow_Click);
             // 
@@ -480,30 +506,19 @@
             this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(6, 4);
+            this.btnCreate.Location = new System.Drawing.Point(89, 4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(77, 32);
             this.btnCreate.TabIndex = 10;
-            this.btnCreate.Text = "Create";
+            this.btnCreate.Text = "New";
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click_1);
             // 
-            // Search
-            // 
-            this.Search.AutoSize = true;
-            this.Search.BackColor = System.Drawing.SystemColors.Window;
-            this.Search.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Search.Location = new System.Drawing.Point(361, 428);
-            this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(64, 16);
-            this.Search.TabIndex = 0;
-            this.Search.Text = "Search...";
-            // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.Teal;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(353, 417);
+            this.textBox1.Location = new System.Drawing.Point(353, 52);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(670, 39);
@@ -512,7 +527,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::School_Management_System.Properties.Resources.icons8_search_50;
-            this.pictureBox1.Location = new System.Drawing.Point(988, 428);
+            this.pictureBox1.Location = new System.Drawing.Point(988, 61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 23);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -524,9 +539,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(1026, 467);
+            this.ClientSize = new System.Drawing.Size(1026, 527);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Search);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -538,7 +552,6 @@
             this.Name = "students";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Students";
-            this.Load += new System.EventHandler(this.students_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -589,8 +602,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Label Search;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

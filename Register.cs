@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace School_Management_System
 {
-    public partial class SubjectNew : UserControl
+    public partial class Register : Form
     {
-        public SubjectNew()
+        public Register()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

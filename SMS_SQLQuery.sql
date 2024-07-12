@@ -23,6 +23,7 @@ CREATE TABLE subjects (
     deleted_at DATETIME
 );
 
+
 -- Create students Table
 CREATE TABLE students (
     id INT PRIMARY KEY IDENTITY(1,1),
@@ -70,3 +71,15 @@ SELECT * FROM subjects;
 SELECT * FROM grades;
 SELECT * FROM student_subjects;
 SELECT * FROM grade_subjects;
+
+INSERT INTO students (admission_no, first_name, last_name, full_name, gender, date_of_birth, tp_no, grade_id, medium, date_of_admission, resident_address)
+VALUES
+('SSH4', 'SHANTH', 'PIRASHANTH', 'SHANTH PIRASHANTH', 'Male', '1999-03-05', '0779214020', 1030, 'TAMIL', '2024-01-01', 'JAFFNA'),
+('SSH5', 'SHANTH', 'PIRASHANTH', 'SHANTH PIRASHANTH', 'Male', '1999-03-05', '0779214020', 1030, 'TAMIL', '2024-01-01', 'JAFFNA'),
+('SSH6', 'SHANTH', 'PIRASHANTH', 'SHANTH PIRASHANTH', 'Male', '1999-03-05', '0779214020', 1033, 'TAMIL', '2024-01-01', 'JAFFNA');
+
+SELECT * FROM students;
+SELECT * FROM grades;
+
+INSERT INTO grades(grade_name,grade_group,grade_order)
+VALUES ('maths','b',5)

@@ -7,12 +7,13 @@ namespace School_Management_System
 {
     public partial class grades : Form
     {
-        private string connectionString = "Data Source=RushanthG\\SQLEXPRESS;Initial Catalog=School Management System;User ID=sa;Password=4158;TrustServerCertificate=True";
+        string connectionString = "Data Source=RushanthG\\SQLEXPRESS;Initial Catalog=School Management System;User ID=sa;Password=4158;TrustServerCertificate=True";
 
         public grades()
         {
             InitializeComponent();
             InitializeEmptyDataGridView();
+            dataGridView2.Visible = false;
         }
 
         private void InitializeEmptyDataGridView()
@@ -25,6 +26,7 @@ namespace School_Management_System
             dt.Columns.Add("grade_order");
             dt.Columns.Add("created_at");
             dt.Columns.Add("updated_at");
+            dt.Columns.Add("deleted_at");
 
             // Bind the empty DataTable to the DataGridView
             dataGridView2.DataSource = dt;
@@ -46,12 +48,20 @@ namespace School_Management_System
                     dt.Load(sqlDataReader);
                     dataGridView2.DataSource = dt;
                     sqlDataReader.Close();
+                    dataGridView2.Visible = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error fetching grades: " + ex.Message);
                 }
             }
+        }
+
+        private void ClearFields()
+        {
+            txtname.Text = string.Empty;
+            combGroup.SelectedIndex = -1; // Clear selected item in combGroup
+            txtOrder.Text = string.Empty;
         }
         private void btnGettAll_Click(object sender, EventArgs e)
         {
@@ -61,83 +71,24 @@ namespace School_Management_System
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (!ValidateInputs())
+            {
                 return;
+            }
 
             string gradeName = txtname.Text;
             string gradeGroup = combGroup.SelectedItem.ToString();
             int gradeOrder = Convert.ToInt32(txtOrder.Text);
 
-            InsertOrUpdateGrade(gradeName, gradeGroup, gradeOrder);
+            // Check already exists or not
+            if (GradeExists(gradeName, gradeGroup, gradeOrder))
+            {
+                MessageBox.Show("Please select Refresh button.", "Grade Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            InsertNewGrade(gradeName, gradeGroup, gradeOrder);
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                int id;
-                if (int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
-                {
-                    string gradeName = txtname.Text.Trim();
-                    string gradeGroup = combGroup.SelectedItem?.ToString();
-                    int gradeOrder;
-
-                    // Check if any of the fields are unchanged
-                    if (string.Equals(gradeName, dataGridView2.SelectedRows[0].Cells["grade_name"].Value.ToString(), StringComparison.InvariantCultureIgnoreCase)
-                        && string.Equals(gradeGroup, dataGridView2.SelectedRows[0].Cells["grade_group"].Value.ToString(), StringComparison.InvariantCultureIgnoreCase)
-                        && int.TryParse(txtOrder.Text, out gradeOrder) && gradeOrder == Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["grade_order"].Value))
-                    {
-                        MessageBox.Show("Please change at least one field (Grade Name, Group, or Order) before updating.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    // Validate inputs
-                    if (string.IsNullOrWhiteSpace(gradeName) || string.IsNullOrWhiteSpace(gradeGroup) || string.IsNullOrWhiteSpace(txtOrder.Text))
-                    {
-                        MessageBox.Show("Grade Name, Grade Group, and Grade Order cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    if (!int.TryParse(txtOrder.Text, out gradeOrder))
-                    {
-                        MessageBox.Show("Grade Order must be a valid integer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    InsertOrUpdateGrade(gradeName, gradeGroup, gradeOrder);
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Grade ID format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a grade to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                int id = Convert.ToInt32(dataGridView2.CurrentRow.Cells["id"].Value);
-                var confirmResult = MessageBox.Show("Are you sure to delete this item?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    DeleteGrade(id);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a grade to delete.");
-            }
-        }
-        private void ClearFields()
-        {
-            txtname.Text = string.Empty;
-            combGroup.SelectedIndex = -1; // Clear selected item in combGroup
-            txtOrder.Text = string.Empty;
-        }
 
         private bool ValidateInputs()
         {
@@ -185,38 +136,141 @@ namespace School_Management_System
             }
         }
 
-        private void InsertOrUpdateGrade(string gradeName, string gradeGroup, int gradeOrder)
+        private void InsertNewGrade(string gradeName, string gradeGroup, int gradeOrder)
         {
-            string insertSql = "INSERT INTO grades (grade_name, grade_group, grade_order, created_at, updated_at) " +
-                               "VALUES (@grade_name, @grade_group, @grade_order, GETDATE(), GETDATE())";
-
-            string updateSql = "UPDATE grades SET updated_at = GETDATE() WHERE grade_name = @grade_name AND grade_group = @grade_group AND grade_order = @grade_order";
+            string sql = "INSERT INTO grades (grade_name, grade_group, grade_order, created_at, updated_at) " +
+                         "VALUES (@grade_name, @grade_group, @grade_order, GETDATE(), GETDATE())";
 
             using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
             {
-                con.Open();
-                SqlTransaction transaction = con.BeginTransaction();
+                cmd.Parameters.AddWithValue("@grade_name", gradeName);
+                cmd.Parameters.AddWithValue("@grade_group", gradeGroup);
+                cmd.Parameters.AddWithValue("@grade_order", gradeOrder);
 
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand(GradeExists(gradeName, gradeGroup, gradeOrder) ? updateSql : insertSql, con, transaction))
-                    {
-                        cmd.Parameters.AddWithValue("@grade_name", gradeName);
-                        cmd.Parameters.AddWithValue("@grade_group", gradeGroup);
-                        cmd.Parameters.AddWithValue("@grade_order", gradeOrder);
-
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    transaction.Commit();
+                    con.Open();
+                    cmd.ExecuteNonQuery();
                     ClearFields();
                     FetchGrades(); // Update the DataGridView immediately
-                    MessageBox.Show("Grade saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Grade inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    transaction.Rollback();
-                    MessageBox.Show("Error saving grade: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error inserting grade: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                int id;
+                if (int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+                {
+                    string gradeName = txtname.Text.Trim();
+                    string gradeGroup = combGroup.SelectedItem?.ToString();
+                    int gradeOrder;
+
+                    // Check if any of the fields are unchanged
+                    if (string.Equals(gradeName, dataGridView2.SelectedRows[0].Cells["grade_name"].Value.ToString(), StringComparison.InvariantCultureIgnoreCase)
+                        && string.Equals(gradeGroup, dataGridView2.SelectedRows[0].Cells["grade_group"].Value.ToString(), StringComparison.InvariantCultureIgnoreCase)
+                        && int.TryParse(txtOrder.Text, out gradeOrder) && gradeOrder == Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["grade_order"].Value))
+                    {
+                        MessageBox.Show("Please change at least one field (Grade Name, Group, or Order) before updating.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Validate inputs
+                    if (string.IsNullOrWhiteSpace(gradeName) || string.IsNullOrWhiteSpace(gradeGroup) || string.IsNullOrWhiteSpace(txtOrder.Text))
+                    {
+                        MessageBox.Show("Grade Name, Grade Group, and Grade Order cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (!int.TryParse(txtOrder.Text, out gradeOrder))
+                    {
+                        MessageBox.Show("Grade Order must be a valid integer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    UpdateGrade(id, gradeName, gradeGroup, gradeOrder);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Grade ID format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a grade to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                int id = Convert.ToInt32(dataGridView2.CurrentRow.Cells["id"].Value);
+                var confirmResult = MessageBox.Show("Are you sure to delete this item?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    DeleteGrade(id);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a grade to delete.");
+            }
+        }
+        private void UpdateGradeIfExists(string gradeName, string gradeGroup, int gradeOrder)
+        {
+            string sql = "UPDATE grades SET updated_at = GETDATE() WHERE grade_name = @grade_name AND grade_group = @grade_group AND grade_order = @grade_order";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@grade_name", gradeName);
+                cmd.Parameters.AddWithValue("@grade_group", gradeGroup);
+                cmd.Parameters.AddWithValue("@grade_order", gradeOrder);
+
+                try
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    FetchGrades(); // Update the DataGridView immediately
+                    MessageBox.Show("Grade updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating grade: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void UpdateGrade(int id, string gradeName, string gradeGroup, int gradeOrder)
+        {
+            string sql = "UPDATE grades SET grade_name = @grade_name, grade_group = @grade_group, grade_order = @grade_order, updated_at = GETDATE() WHERE id = @id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@grade_name", gradeName);
+                command.Parameters.AddWithValue("@grade_group", gradeGroup);
+                command.Parameters.AddWithValue("@grade_order", gradeOrder);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    ClearFields();
+                    FetchGrades(); // Update the DataGridView immediately
+                    MessageBox.Show("Grade updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating grade: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -250,20 +304,22 @@ namespace School_Management_System
         {
             this.Close();
         }
-
         private void dataGridView2_SelectionChanged_1(object sender, EventArgs e)
         {
             if (dataGridView2.SelectedRows.Count > 0)
             {
                 txtname.Text = dataGridView2.SelectedRows[0].Cells["grade_name"].Value.ToString();
-                combGroup.SelectedItem = dataGridView2.SelectedRows[0].Cells["grade_group"].Value.ToString();
+                // Set selected item in combGroup
+                string gradeGroup = dataGridView2.SelectedRows[0].Cells["grade_group"].Value.ToString();
+                combGroup.SelectedItem = gradeGroup;
                 txtOrder.Text = dataGridView2.SelectedRows[0].Cells["grade_order"].Value.ToString();
             }
         }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
+
+
     }
 }
