@@ -18,6 +18,7 @@ namespace School_Management_System
         public Login()
         {
             InitializeComponent();
+            txtpassword.PasswordChar = '*'; // Set the masking character initially
         }
 
         private void btnlogin_Click(object sender, EventArgs e)
@@ -73,10 +74,11 @@ namespace School_Management_System
             Application.Exit();
         }
 
+
         private void checkshow_CheckedChanged(object sender, EventArgs e)
         {
             txtpassword.PasswordChar = checkshow.Checked ? '\0' : '*';
-
         }
+
     }
 }
