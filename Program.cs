@@ -11,8 +11,8 @@ namespace School_Management_System
     {
         static void Main(string[] args)
         {
-            //Application.Run(new Welcome());
-            Application.Run(new students());
+            Application.Run(new Welcome());
+            //Application.Run(new students());
         }
     }
 }

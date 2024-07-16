@@ -91,9 +91,9 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 243);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 293);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1056, 296);
+            this.dataGridView1.Size = new System.Drawing.Size(1056, 237);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -115,7 +115,7 @@
             this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(802, 414);
+            this.btnRefresh.Location = new System.Drawing.Point(985, 209);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(77, 32);
             this.btnRefresh.TabIndex = 7;
@@ -131,7 +131,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1072, 30);
+            this.panel2.Size = new System.Drawing.Size(1068, 30);
             this.panel2.TabIndex = 10;
             // 
             // label2
@@ -164,9 +164,9 @@
             this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.btnUpdate);
             this.panel3.Controls.Add(this.btnCreate);
-            this.panel3.Location = new System.Drawing.Point(432, 407);
+            this.panel3.Location = new System.Drawing.Point(320, 219);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(335, 39);
+            this.panel3.Size = new System.Drawing.Size(468, 39);
             this.panel3.TabIndex = 11;
             // 
             // btnshow
@@ -178,7 +178,7 @@
             this.btnshow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnshow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnshow.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnshow.Location = new System.Drawing.Point(6, 4);
+            this.btnshow.Location = new System.Drawing.Point(7, 4);
             this.btnshow.Name = "btnshow";
             this.btnshow.Size = new System.Drawing.Size(92, 32);
             this.btnshow.TabIndex = 7;
@@ -193,7 +193,7 @@
             this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(252, 3);
+            this.btnDelete.Location = new System.Drawing.Point(368, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(77, 32);
             this.btnDelete.TabIndex = 8;
@@ -208,7 +208,7 @@
             this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(172, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(250, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(74, 32);
             this.btnUpdate.TabIndex = 9;
@@ -223,7 +223,7 @@
             this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(89, 4);
+            this.btnCreate.Location = new System.Drawing.Point(133, 4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(77, 32);
             this.btnCreate.TabIndex = 10;
@@ -235,7 +235,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.Teal;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(6, 243);
+            this.textBox1.Location = new System.Drawing.Point(6, 264);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(1056, 27);
@@ -244,7 +244,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::School_Management_System.Properties.Resources.icons8_search_50;
-            this.pictureBox1.Location = new System.Drawing.Point(1037, 247);
+            this.pictureBox1.Location = new System.Drawing.Point(1035, 264);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 23);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -535,7 +535,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(1072, 548);
+            this.ClientSize = new System.Drawing.Size(1068, 569);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
