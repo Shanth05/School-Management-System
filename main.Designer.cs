@@ -168,7 +168,7 @@
             this.btngrsub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btngrsub.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btngrsub.ForeColor = System.Drawing.Color.White;
-            this.btngrsub.Location = new System.Drawing.Point(66, 382);
+            this.btngrsub.Location = new System.Drawing.Point(74, 317);
             this.btngrsub.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btngrsub.Name = "btngrsub";
             this.btngrsub.Size = new System.Drawing.Size(139, 40);
@@ -186,7 +186,7 @@
             this.btnstusub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnstusub.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnstusub.ForeColor = System.Drawing.Color.White;
-            this.btnstusub.Location = new System.Drawing.Point(66, 316);
+            this.btnstusub.Location = new System.Drawing.Point(66, 383);
             this.btnstusub.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnstusub.Name = "btnstusub";
             this.btnstusub.Size = new System.Drawing.Size(144, 40);
