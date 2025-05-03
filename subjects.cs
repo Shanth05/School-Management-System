@@ -8,7 +8,7 @@ namespace School_Management_System
     public partial class subjects : Form
     {
         DataTable dt = new DataTable();
-        string connetionString = "Data Source=RushanthG\\SQLEXPRESS;Initial Catalog=School Management System;User ID=sa;Password=4158;TrustServerCertificate=True";
+        string connectionString = "Data Source=DESKTOP-C17N8R5MSSQLSERVER01;Initial Catalog=School_Management_System;User ID=admin;Password=1234;TrustServerCertificate=True";
 
         public subjects()
         {
@@ -34,7 +34,7 @@ namespace School_Management_System
         {
             string sql = "SELECT * FROM subjects";
 
-            using (SqlConnection connection = new SqlConnection(connetionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 try
@@ -88,7 +88,7 @@ namespace School_Management_System
             string sql = "INSERT INTO subjects (subject_name, subject_index, subject_number, subject_order, created_at, updated_at) " +
                          "VALUES (@subject_name, @subject_index, @subject_number, @subject_order, GETDATE(), GETDATE())";
 
-            using (SqlConnection con = new SqlConnection(connetionString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
                 cmd.Parameters.AddWithValue("@subject_name", subject_name);
@@ -136,7 +136,7 @@ namespace School_Management_System
                          "subject_number = @subject_number, subject_order = @subject_order, updated_at = GETDATE() " +
                          "WHERE id = @id";
 
-            using (SqlConnection cnn = new SqlConnection(connetionString))
+            using (SqlConnection cnn = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(sql, cnn))
             {
                 command.Parameters.AddWithValue("@subject_name", txtname.Text);
@@ -180,7 +180,7 @@ namespace School_Management_System
             {
                 string sql = "DELETE FROM subjects WHERE id = @id";
 
-                using (SqlConnection cnn = new SqlConnection(connetionString))
+                using (SqlConnection cnn = new SqlConnection(connectionString))
                 using (SqlCommand command = new SqlCommand(sql, cnn))
                 {
                     command.Parameters.AddWithValue("@id", selectedSubjectId);
@@ -247,7 +247,7 @@ namespace School_Management_System
             string sql = "SELECT COUNT(*) FROM subjects WHERE subject_name = @subject_name AND subject_index = @subject_index " +
                          "AND subject_number = @subject_number AND subject_order = @subject_order";
 
-            using (SqlConnection connection = new SqlConnection(connetionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@subject_name", subject_name);
