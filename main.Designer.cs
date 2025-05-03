@@ -92,10 +92,10 @@
             this.btnstudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnstudents.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnstudents.ForeColor = System.Drawing.Color.White;
-            this.btnstudents.Location = new System.Drawing.Point(66, 107);
+            this.btnstudents.Location = new System.Drawing.Point(69, 109);
             this.btnstudents.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnstudents.Name = "btnstudents";
-            this.btnstudents.Size = new System.Drawing.Size(88, 40);
+            this.btnstudents.Size = new System.Drawing.Size(97, 40);
             this.btnstudents.TabIndex = 1;
             this.btnstudents.Text = "Students";
             this.btnstudents.UseVisualStyleBackColor = false;
@@ -128,7 +128,7 @@
             this.btngrades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btngrades.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btngrades.ForeColor = System.Drawing.Color.White;
-            this.btngrades.Location = new System.Drawing.Point(66, 250);
+            this.btngrades.Location = new System.Drawing.Point(66, 251);
             this.btngrades.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btngrades.Name = "btngrades";
             this.btngrades.Size = new System.Drawing.Size(88, 40);
@@ -168,7 +168,7 @@
             this.btngrsub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btngrsub.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btngrsub.ForeColor = System.Drawing.Color.White;
-            this.btngrsub.Location = new System.Drawing.Point(74, 317);
+            this.btngrsub.Location = new System.Drawing.Point(66, 317);
             this.btngrsub.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btngrsub.Name = "btngrsub";
             this.btngrsub.Size = new System.Drawing.Size(139, 40);
@@ -186,7 +186,7 @@
             this.btnstusub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnstusub.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnstusub.ForeColor = System.Drawing.Color.White;
-            this.btnstusub.Location = new System.Drawing.Point(66, 383);
+            this.btnstusub.Location = new System.Drawing.Point(69, 382);
             this.btnstusub.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnstusub.Name = "btnstusub";
             this.btnstusub.Size = new System.Drawing.Size(144, 40);
@@ -454,7 +454,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
             this.label3.Location = new System.Drawing.Point(31, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(285, 30);
+            this.label3.Size = new System.Drawing.Size(363, 37);
             this.label3.TabIndex = 2;
             this.label3.Text = "Student Management System";
             // 
@@ -465,14 +465,14 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(1051, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 16);
+            this.label2.Size = new System.Drawing.Size(21, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "X";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1091, 530);
