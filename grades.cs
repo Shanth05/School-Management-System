@@ -7,7 +7,7 @@ namespace School_Management_System
 {
     public partial class grades : Form
     {
-        string connectionString = "Data Source=RushanthG\\SQLEXPRESS;Initial Catalog=School Management System;User ID=sa;Password=4158;TrustServerCertificate=True";
+        string connectionString = "Data Source=DESKTOP-C17N8R5MSSQLSERVER01;Initial Catalog=School_Management_System;User ID=admin;Password=1234;TrustServerCertificate=True";
 
         public grades()
         {
